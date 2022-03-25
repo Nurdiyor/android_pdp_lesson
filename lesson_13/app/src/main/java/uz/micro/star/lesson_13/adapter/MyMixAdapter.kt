@@ -25,7 +25,7 @@ class MyMixAdapter(var musicList: ArrayList<BaseData>) : BaseAdapter() {
 
     override fun getCount() = musicList.size
 
-    override fun getItem(p0: Int): BaseData = musicList[p0]
+    override fun getItem(p0: Int): BaseData = musicList[0]
 
     override fun getItemId(p0: Int): Long = p0.toLong()
 
