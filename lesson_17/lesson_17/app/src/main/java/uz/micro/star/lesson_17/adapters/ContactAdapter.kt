@@ -1,23 +1,26 @@
-package uz.micro.star.lesson_15.adapters
+package uz.micro.star.lesson_17.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import uz.micro.star.lesson_15.databinding.ItemContactBinding
-import uz.micro.star.lesson_15.models.ContactData
+import uz.micro.star.lesson_17.databinding.ItemContactBinding
+import uz.micro.star.lesson_17.models.Student
 
 class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
-    private var contactList = ArrayList<ContactData>()
+    private var contactList = ArrayList<Student>()
     private var deleteListener: ((position: Int) -> Unit)? = null
 
     fun setDeleteListener(f: (position: Int) -> Unit) {
         deleteListener = f
     }
 
-    fun addAllContacts(){
-
+    fun setAllContacts(list: ArrayList<Student>) {
+        contactList.clear()
+        contactList.addAll(list)
+        notifyDataSetChanged()
     }
-    fun addContact(contact: ContactData) {
+
+    fun addContact(contact: Student) {
         contactList.add(contact)
 //        notifyDataSetChanged() bu listni to`liq yangilaydi
         notifyItemInserted(contactList.size - 1)//bu aynan positsiyani yangilaydi
@@ -29,7 +32,7 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() 
         notifyItemRemoved(position)
     }
 
-    fun editContact(newContact: ContactData, position: Int) {
+    fun editContact(newContact: Student, position: Int) {
         contactList[position] = newContact
         notifyItemChanged(position)//positsiyadagini yangilaydi
     }
@@ -51,7 +54,7 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() 
 
     inner class ContactViewHolder(var binding: ItemContactBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bindData(contactData: ContactData) {
+        fun bindData(contactData: Student) {
             binding.name.text = contactData.name
             binding.number.text = contactData.number
             binding.delete.setOnClickListener {
