@@ -70,6 +70,10 @@ public class Database {
     public ArrayList<Student> getStudents() {
         ArrayList<Student> data = new ArrayList<>();
         Cursor cursor = mDb.rawQuery("select * from Student", null);
+//        String []a=new String[4];
+//        a[0]="id";
+//        a[1]="name";
+//        Cursor cursorx = mDb.query("Student",a);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             data.add(new Student(
@@ -85,12 +89,13 @@ public class Database {
     }
 
     ///////////delete by id
-    public void deleteUser(int id) {
-        mDb.delete("Student", "id=" + id, null);
+    public int deleteUser(int id) {
+       return mDb.delete("Student", "id=" + id, null);
+//        mDb.rawQuery("Delete from Student where id=" + id, null);
     }
 
     /////add new user////////////////
-    public void addUser(Student userData) {
+    public Student addUser(Student userData) {
         ContentValues values = new ContentValues();
         values.put("name", userData.getName());
         values.put("number", userData.getNumber());
@@ -98,6 +103,7 @@ public class Database {
         long id = mDb.insert("Student", null, values);
 //        long id2 = mDb.rawQuery("insert into Student(n)")
         userData.setId((int) id);
+        return userData;
     }
 
     /////for edit user
@@ -107,6 +113,7 @@ public class Database {
         values.put("number", userData.getNumber());
         values.put("group_id", userData.getGroupId());
         mDb.update("Student", values, "id=" + userData.getId(), null);
+//        mDb.rawQuery("update student set name="+name+"set number")
     }
 
 }
