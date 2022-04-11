@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "205957e6-08f4-4f6e-a8e8-e4a3e59f347f",
+		"name": "trainer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://microstar.herokuapp.com/api/trainer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://microstar.herokuapp.com/api/trainer",
+					"protocol": "https",
+					"host": [
+						"microstar",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"trainer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"trainerName\": \"Komiljon\",\n        \"trainerSurname\": \"Xusainov\",\n        \"trainerSalary\": 10700\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://microstar.herokuapp.com/api/trainer",
+					"protocol": "https",
+					"host": [
+						"microstar",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"trainer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"trainerName\": \"Boburjon\",\n        \"trainerSurname\": \"Xusainov\",\n        \"trainerSalary\": 10700\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://microstar.herokuapp.com/api/trainer/590",
+					"protocol": "https",
+					"host": [
+						"microstar",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"trainer",
+						"590"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://microstar.herokuapp.com/api/trainer/590",
+					"protocol": "https",
+					"host": [
+						"microstar",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"trainer",
+						"590"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
