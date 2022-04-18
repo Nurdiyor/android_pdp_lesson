@@ -1,7 +1,7 @@
 package uz.micro.star.lesson_22.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import uz.micro.star.lesson_22.models.response.TrainerResponse
+import uz.micro.star.lesson_22.retrofit.models.response.TrainerResponse
 
 
 /**

@@ -1,4 +1,4 @@
-package uz.micro.star.lesson_22.models.response
+package uz.micro.star.lesson_22.retrofit.models.response
 
 
 data class TrainerResponse(

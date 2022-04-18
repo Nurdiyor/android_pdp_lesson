@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import uz.micro.star.lesson_22.databinding.ItemTrainerBinding
-import uz.micro.star.lesson_22.models.response.TrainerResponse
+import uz.micro.star.lesson_22.retrofit.models.response.TrainerResponse
 import uz.micro.star.lesson_22.utils.TrainerDiffCallback
 
 /**

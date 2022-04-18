@@ -2,8 +2,8 @@ package uz.micro.star.lesson_22.retrofit
 
 import retrofit2.Call
 import retrofit2.http.*
-import uz.micro.star.lesson_22.models.request.TrainerRequest
-import uz.micro.star.lesson_22.models.response.TrainerResponse
+import uz.micro.star.lesson_22.retrofit.models.request.TrainerRequest
+import uz.micro.star.lesson_22.retrofit.models.response.TrainerResponse
 
 interface ApiInterface {
 

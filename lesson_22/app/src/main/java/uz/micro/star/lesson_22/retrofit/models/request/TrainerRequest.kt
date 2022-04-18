@@ -1,4 +1,4 @@
-package uz.micro.star.lesson_22.models.request
+package uz.micro.star.lesson_22.retrofit.models.request
 
 
 data class TrainerRequest(
