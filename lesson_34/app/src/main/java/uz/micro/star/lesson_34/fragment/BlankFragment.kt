@@ -27,9 +27,9 @@ class BlankFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewmodel = ViewModelProvider(this)[ActivityViewModel::class.java]
-        viewmodel.listViewModel.observe(this){
-            adapter.setUserList(it)
-        }
-        viewmodel.getAllUsers()
+//        viewmodel.listViewModel.observe(this){
+//            adapter.setUserList(it)
+//        }
+        viewmodel.getAllTrainer()
     }
 }
