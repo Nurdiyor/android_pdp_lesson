@@ -4,41 +4,42 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import uz.micro.star.lesson_22.utils.TrainerDiffCallback
+import uz.micro.star.lesson_34.utils.TrainerDiffCallback
 import uz.micro.star.lesson_34.databinding.ItemTrainerBinding
+import uz.micro.star.lesson_34.dto.TrainerDto
 import uz.micro.star.lesson_34.retrofit.models.response.TrainerResponse
 
 /**
  * Created by Microstar on 20.04.2020.
  */
 class TrainerAdapter : RecyclerView.Adapter<TrainerAdapter.PhotoViewHolder>() {
-    var _data = mutableListOf<TrainerResponse>()
+    var _data = mutableListOf<TrainerDto>()
 
-    private var deleteClickListener: ((trainer: TrainerResponse, position: Int) -> Unit)? = null
+    private var deleteClickListener: ((trainer: TrainerDto, position: Int) -> Unit)? = null
 
-    fun setDeleteClickListener(f: (trainer: TrainerResponse, position: Int) -> Unit) {
+    fun setDeleteClickListener(f: (trainer: TrainerDto, position: Int) -> Unit) {
         deleteClickListener = f
     }
 
-    private var editClickListener: ((trainer: TrainerResponse, position: Int) -> Unit)? = null
+    private var editClickListener: ((trainer: TrainerDto, position: Int) -> Unit)? = null
 
-    fun setEditClickListener(f: (trainer: TrainerResponse, position: Int) -> Unit) {
+    fun setEditClickListener(f: (trainer: TrainerDto, position: Int) -> Unit) {
         editClickListener = f
     }
 
-    fun setNewData(newData: List<TrainerResponse>) {
+    fun setNewData(newData: List<TrainerDto>) {
         val diff = DiffUtil.calculateDiff(TrainerDiffCallback(_data, newData))
         _data.clear()
         _data.addAll(newData)
         diff.dispatchUpdatesTo(this)
     }
 
-    fun addTrainer(newData: TrainerResponse) {
+    fun addTrainer(newData: TrainerDto) {
         _data.add(newData)
         notifyItemInserted(_data.size - 1)
     }
 
-    fun editTrainer(newData: TrainerResponse, pos: Int) {
+    fun editTrainer(newData: TrainerDto, pos: Int) {
         _data[pos] = newData
         notifyItemChanged(pos)
     }
@@ -50,7 +51,7 @@ class TrainerAdapter : RecyclerView.Adapter<TrainerAdapter.PhotoViewHolder>() {
 
     inner class PhotoViewHolder(private val binding: ItemTrainerBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bindView(data: TrainerResponse) {
+        fun bindView(data: TrainerDto) {
             binding.title.text = data.trainerName
             binding.salary.text = "${data.trainerSalary}"
             binding.edit.setOnClickListener {

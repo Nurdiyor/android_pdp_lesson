@@ -3,14 +3,14 @@ package uz.micro.star.lesson_34.mvvm
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import uz.micro.star.lesson_34.dto.TrainerDto
 import uz.micro.star.lesson_34.repository.ActivityRepository
 import uz.micro.star.lesson_34.retrofit.models.BaseNetworkResult
-import uz.micro.star.lesson_34.retrofit.models.response.TrainerResponse
 
 class ActivityViewModel : ViewModel() {
     val repository = ActivityRepository()
-    private val _trainerListViewModel = MutableLiveData<List<TrainerResponse>>()
-    val trainerListViewModel: LiveData<List<TrainerResponse>> get() = _trainerListViewModel
+    private val _trainerListViewModel = MutableLiveData<List<TrainerDto>>()
+    val trainerListViewModel: LiveData<List<TrainerDto>> get() = _trainerListViewModel
 
     private val _loadingViewModel = MutableLiveData<Boolean>()
     val loadingViewModel: LiveData<Boolean> get() = _loadingViewModel
