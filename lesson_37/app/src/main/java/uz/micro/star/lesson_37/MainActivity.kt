@@ -23,5 +23,6 @@ class MainActivity : DaggerAppCompatActivity() {
         Toast.makeText(this, sharedPref.getLang(), Toast.LENGTH_SHORT).show()
         Log.d("TTTT", "language: ${sharedPref.getLang()}")
 //        apiService.getTrainersList().enqueue()
+        //hello
     }
 }
