@@ -1,7 +1,9 @@
 package uz.micro.star.lesson_37.di.module
 
 import android.app.Application
-import androidx.viewbinding.BuildConfig
+import android.os.Handler
+import android.os.Looper
+import android.util.Base64
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -19,20 +21,35 @@ import javax.inject.Singleton
 @Module()
 object AppModule {
 
-
     @Singleton
     @Provides
     fun provideShared(application: Application) = SharedPref(application.applicationContext)
 
     @Singleton
     @Provides
-    fun provideRetrofit(httpLoggingInterceptor: HttpLoggingInterceptor): Retrofit {
-        return Retrofit.Builder().apply {
-            baseUrl("BASE_URL")
-            client(OkHttpClient.Builder().addNetworkInterceptor(httpLoggingInterceptor).build())
-//                .addCallAdapterFactory(CoroutineCallAdapterFactory())
-            addConverterFactory(GsonConverterFactory.create())
-        }.build()
+    fun provideRetrofit(httpLoggingInterceptor: HttpLoggingInterceptor,shared: SharedPref): Retrofit {
+//        val httpLoggingInterceptor = HttpLoggingInterceptor()
+//        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        return Retrofit.Builder()
+            .baseUrl("https://microstar.herokuapp.com/api/")
+            .client(OkHttpClient.Builder().addNetworkInterceptor(httpLoggingInterceptor)
+                .addInterceptor { chain ->
+                    val request = chain.request()
+                    val newRequest = if (shared.getToken().isNullOrEmpty())
+                        request.newBuilder()
+                    else request.newBuilder()
+                        .header("Authorization", "Bearer ${shared.getToken()}")
+                    chain.proceed(newRequest.build()).also {
+//                        if (it.code == 401) {
+////                            Handler(Looper.getMainLooper()).post { shared.setAccessToken("empty") }
+//                        }
+                    }
+                }
+                .build()
+            )
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
     }
 
     @Singleton
@@ -44,12 +61,14 @@ object AppModule {
     @Singleton
     @Provides
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+//        val httpLoggingInterceptor = HttpLoggingInterceptor()
+//        if (BuildConfig.DEBUG) {
+//            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+//        } else {
+//            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
+//        }
         val httpLoggingInterceptor = HttpLoggingInterceptor()
-        if (BuildConfig.DEBUG) {
-            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-        } else {
-            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
-        }
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return httpLoggingInterceptor
     }
 
