@@ -1,10 +1,11 @@
 package uz.micro.star.lesson_37.di.module
 
 import android.app.Application
-import com.google.gson.GsonBuilder
+import androidx.viewbinding.BuildConfig
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uz.micro.star.lesson_37.retrofit.ApiService
@@ -25,19 +26,31 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitInstance(client: OkHttpClient): Retrofit {
-        return Retrofit.Builder().baseUrl("BASE_URL").client(client)
-            .addConverterFactory(
-                GsonConverterFactory.create(
-                    GsonBuilder().serializeNulls().setLenient().create()
-                )
-            ).build()
+    fun provideRetrofit(httpLoggingInterceptor: HttpLoggingInterceptor): Retrofit {
+        return Retrofit.Builder().apply {
+            baseUrl("BASE_URL")
+            client(OkHttpClient.Builder().addNetworkInterceptor(httpLoggingInterceptor).build())
+//                .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            addConverterFactory(GsonConverterFactory.create())
+        }.build()
     }
 
     @Singleton
     @Provides
     fun provideLogin(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        if (BuildConfig.DEBUG) {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        } else {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
+        }
+        return httpLoggingInterceptor
     }
 
 //    @Singleton
