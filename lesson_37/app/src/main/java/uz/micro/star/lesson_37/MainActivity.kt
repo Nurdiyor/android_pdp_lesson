@@ -1,68 +1,29 @@
 package uz.micro.star.lesson_37
 
 import android.os.Bundle
-import android.util.Log
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 import dagger.android.support.DaggerAppCompatActivity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import uz.micro.star.lesson_34.retrofit.models.response.TrainerResponse
 import uz.micro.star.lesson_37.databinding.ActivityMainBinding
-import uz.micro.star.lesson_37.retrofit.ApiService
-import uz.micro.star.lesson_37.retrofit.models.request.LogInRequest
-import uz.micro.star.lesson_37.retrofit.models.response.LogInResponse
-import uz.micro.star.lesson_37.utils.SharedPref
-import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity() {
-
-    @Inject
-    lateinit var sharedPref: SharedPref
-
-    @Inject
-    lateinit var apiService: ApiService
-
+    private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var binding: ActivityMainBinding
-
+    lateinit var controller: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        sharedPref = SharedPref(this)
-        Log.d("TTTT", "language: ${sharedPref.getLang()}")
-        binding.signIn.setOnClickListener {
-            apiService.logIn(LogInRequest("sheralizorro", "123456"))
-                .enqueue(object : Callback<LogInResponse> {
-                    override fun onResponse(
-                        call: Call<LogInResponse>,
-                        response: Response<LogInResponse>
-                    ) {
-                        if (response.code() == 200) {
-                            response.body()?.let {
-                                sharedPref.setToken(it.accessToken)
-                            }
-                        }
-                    }
+        controller = findNavController(R.id.main_nav_fragment)
+        appBarConfiguration = AppBarConfiguration(controller.graph)
+        setupActionBarWithNavController(controller, appBarConfiguration)
 
-                    override fun onFailure(call: Call<LogInResponse>, t: Throwable) {
+    }
 
-                    }
-                })
-        }
-        binding.getList.setOnClickListener {
-            apiService.getTrainersList().enqueue(object : Callback<List<TrainerResponse>> {
-                override fun onResponse(
-                    call: Call<List<TrainerResponse>>,
-                    response: Response<List<TrainerResponse>>
-                ) {
-
-                }
-
-                override fun onFailure(call: Call<List<TrainerResponse>>, t: Throwable) {
-
-                }
-
-            })
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        return controller.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

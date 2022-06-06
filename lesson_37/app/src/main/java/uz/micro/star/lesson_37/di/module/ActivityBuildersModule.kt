@@ -11,7 +11,7 @@ import uz.micro.star.lesson_37.MainActivity
 @Module
 abstract class ActivityBuildersModule {
 
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector(modules = [ViewModelsModule::class, MainFragmentBuildersModule::class])
     abstract fun contributeMainActivity(): MainActivity
 
 //    @ContributesAndroidInjector(modules = [MainFragmentBuildersModule::class, ViewModelsModule::class])

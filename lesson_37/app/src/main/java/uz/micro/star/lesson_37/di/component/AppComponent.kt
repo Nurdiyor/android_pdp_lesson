@@ -8,6 +8,7 @@ import dagger.android.support.AndroidSupportInjectionModule
 import uz.micro.star.lesson_37.app.App
 import uz.micro.star.lesson_37.di.module.ActivityBuildersModule
 import uz.micro.star.lesson_37.di.module.AppModule
+import uz.micro.star.lesson_37.di.module.ViewModelFactoryModule
 import javax.inject.Singleton
 
 /**
@@ -18,9 +19,8 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         AppModule::class,
-        ActivityBuildersModule::class
-//        ActivityBuildersModule::class,
-//        ViewModelFactoryModule::class,
+        ActivityBuildersModule::class,
+        ViewModelFactoryModule::class,
     ]
 )
 interface AppComponent : AndroidInjector<App> {

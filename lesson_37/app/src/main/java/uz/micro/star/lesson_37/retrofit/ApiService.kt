@@ -9,18 +9,7 @@ import uz.micro.star.lesson_37.retrofit.models.response.LogInResponse
 
 interface ApiService {
 
-    @GET("trainer_with_role")
+    @GET("trainert")
     fun getTrainersList(): Call<List<TrainerResponse>>
 
-    @POST("trainer_with_role")
-    fun addTrainer(@Body trainer: TrainerRequest): Call<TrainerResponse>
-
-    @DELETE("trainer_with_role/{id}")
-    fun deleteTrainer(@Path("id") id: Int): Call<TrainerResponse>
-
-    @PUT("trainer_with_role/{id}")
-    fun editTrainer(@Body trainer: TrainerRequest, @Path("id") id: Int): Call<TrainerResponse>
-
-    @POST("auth/signin")
-    fun logIn(@Body login: LogInRequest): Call<LogInResponse>
 }
