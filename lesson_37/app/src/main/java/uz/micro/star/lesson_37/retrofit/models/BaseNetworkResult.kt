@@ -1,4 +1,4 @@
-package uz.micro.star.lesson_34.retrofit.models
+package uz.micro.star.lesson_37.retrofit.models
 
 sealed class BaseNetworkResult<T>(
     val data: T? = null,

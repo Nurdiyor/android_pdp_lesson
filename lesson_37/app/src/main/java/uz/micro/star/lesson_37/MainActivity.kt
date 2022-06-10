@@ -1,28 +1,29 @@
 package uz.micro.star.lesson_37
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 import dagger.android.support.DaggerAppCompatActivity
-import uz.micro.star.lesson_37.retrofit.ApiService
-import uz.micro.star.lesson_37.utils.SharedPref
-import javax.inject.Inject
+import uz.micro.star.lesson_37.databinding.ActivityMainBinding
 
 class MainActivity : DaggerAppCompatActivity() {
-
-    @Inject
-    lateinit var sharedPref: SharedPref
-
-    @Inject
-    lateinit var apiService: ApiService
-
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var binding: ActivityMainBinding
+    lateinit var controller: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-//        sharedPref = SharedPref(this)
-        Toast.makeText(this, sharedPref.getLang(), Toast.LENGTH_SHORT).show()
-        Log.d("TTTT", "language: ${sharedPref.getLang()}")
-//        apiService.getTrainersList().enqueue()
-        //hello
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        controller = findNavController(R.id.main_nav_fragment)
+        appBarConfiguration = AppBarConfiguration(controller.graph)
+        setupActionBarWithNavController(controller, appBarConfiguration)
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return controller.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

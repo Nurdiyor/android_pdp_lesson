@@ -19,6 +19,15 @@ class SharedPref(context: Context) {
 
     fun getLang() = preferences.getString("LANG", "ru")
 
+
+    fun setToken(token: String) {
+        editor = preferences.edit()
+        editor.putString("TOKEN", token)
+        editor.apply()
+    }
+
+    fun getToken() = preferences.getString("TOKEN", "")
+
     fun isLangSelected(isSelected: Boolean) {
         editor = preferences.edit()
         editor.putBoolean("IS_SELECTED", isSelected)
