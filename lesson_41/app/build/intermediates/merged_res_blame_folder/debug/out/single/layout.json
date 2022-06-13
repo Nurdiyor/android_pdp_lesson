@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_splash.xml",
+        "source": "/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/res/layout/fragment_splash.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_weather.xml",
+        "source": "/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/res/layout/fragment_weather.xml"
+    },
+    {
+        "merged": "/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/res/layout/activity_main.xml"
+    }
+]

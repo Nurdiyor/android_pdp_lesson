@@ -1,0 +1,100 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="uz.micro.star.lesson_41"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:4:1-62
+11-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:4:18-60
+12
+13    <application
+13-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:5:5-22:19
+14        android:name="uz.micro.star.lesson_41.app.App"
+14-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:6:9-32
+15        android:allowBackup="true"
+15-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:7:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.7.0] /Users/macbook/.gradle/caches/transforms-3/adacc4bbdca3c037c01e5031782c646c/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+17        android:debuggable="true"
+18        android:icon="@mipmap/ic_launcher"
+18-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:8:9-43
+19        android:label="@string/app_name"
+19-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:9:9-41
+20        android:roundIcon="@mipmap/ic_launcher_round"
+20-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:10:9-54
+21        android:supportsRtl="true"
+21-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:11:9-35
+22        android:testOnly="true"
+23        android:theme="@style/Theme.Lesson_37" >
+23-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:12:9-47
+24        <activity
+24-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:13:9-21:20
+25            android:name="uz.micro.star.lesson_41.MainActivity"
+25-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:14:13-41
+26            android:exported="true" >
+26-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:15:13-36
+27            <intent-filter>
+27-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:16:13-20:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:17:17-69
+28-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:17:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:19:17-77
+30-->/Users/macbook/Documents/lesson/pdp/android_pdp_lesson/lesson_41/app/src/main/AndroidManifest.xml:19:27-74
+31            </intent-filter>
+32        </activity>
+33
+34        <service
+34-->[androidx.room:room-runtime:2.5.0-alpha01] /Users/macbook/.gradle/caches/transforms-3/6a645638af1e85950d999d4a06752829/transformed/room-runtime-2.5.0-alpha01/AndroidManifest.xml:26:9-30:63
+35            android:name="androidx.room.MultiInstanceInvalidationService"
+35-->[androidx.room:room-runtime:2.5.0-alpha01] /Users/macbook/.gradle/caches/transforms-3/6a645638af1e85950d999d4a06752829/transformed/room-runtime-2.5.0-alpha01/AndroidManifest.xml:27:13-74
+36            android:directBootAware="true"
+36-->[androidx.room:room-runtime:2.5.0-alpha01] /Users/macbook/.gradle/caches/transforms-3/6a645638af1e85950d999d4a06752829/transformed/room-runtime-2.5.0-alpha01/AndroidManifest.xml:28:13-43
+37            android:exported="false" />
+37-->[androidx.room:room-runtime:2.5.0-alpha01] /Users/macbook/.gradle/caches/transforms-3/6a645638af1e85950d999d4a06752829/transformed/room-runtime-2.5.0-alpha01/AndroidManifest.xml:29:13-37
+38
+39        <uses-library
+39-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/transforms-3/57df4ce2d08a22f066cf859cac9a3e30/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+40            android:name="androidx.window.extensions"
+40-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/transforms-3/57df4ce2d08a22f066cf859cac9a3e30/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+41            android:required="false" />
+41-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/transforms-3/57df4ce2d08a22f066cf859cac9a3e30/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+42        <uses-library
+42-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/transforms-3/57df4ce2d08a22f066cf859cac9a3e30/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+43            android:name="androidx.window.sidecar"
+43-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/transforms-3/57df4ce2d08a22f066cf859cac9a3e30/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+44            android:required="false" />
+44-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/transforms-3/57df4ce2d08a22f066cf859cac9a3e30/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+45
+46        <provider
+46-->[androidx.emoji2:emoji2:1.0.0] /Users/macbook/.gradle/caches/transforms-3/0598df94f460c67e853f90789c9d40d1/transformed/emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+47            android:name="androidx.startup.InitializationProvider"
+47-->[androidx.emoji2:emoji2:1.0.0] /Users/macbook/.gradle/caches/transforms-3/0598df94f460c67e853f90789c9d40d1/transformed/emoji2-1.0.0/AndroidManifest.xml:27:13-67
+48            android:authorities="uz.micro.star.lesson_41.androidx-startup"
+48-->[androidx.emoji2:emoji2:1.0.0] /Users/macbook/.gradle/caches/transforms-3/0598df94f460c67e853f90789c9d40d1/transformed/emoji2-1.0.0/AndroidManifest.xml:28:13-68
+49            android:exported="false" >
+49-->[androidx.emoji2:emoji2:1.0.0] /Users/macbook/.gradle/caches/transforms-3/0598df94f460c67e853f90789c9d40d1/transformed/emoji2-1.0.0/AndroidManifest.xml:29:13-37
+50            <meta-data
+50-->[androidx.emoji2:emoji2:1.0.0] /Users/macbook/.gradle/caches/transforms-3/0598df94f460c67e853f90789c9d40d1/transformed/emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+51                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+51-->[androidx.emoji2:emoji2:1.0.0] /Users/macbook/.gradle/caches/transforms-3/0598df94f460c67e853f90789c9d40d1/transformed/emoji2-1.0.0/AndroidManifest.xml:32:17-75
+52                android:value="androidx.startup" />
+52-->[androidx.emoji2:emoji2:1.0.0] /Users/macbook/.gradle/caches/transforms-3/0598df94f460c67e853f90789c9d40d1/transformed/emoji2-1.0.0/AndroidManifest.xml:33:17-49
+53            <meta-data
+53-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/macbook/.gradle/caches/transforms-3/c4217aea2ca3d9a23241dc893df048d3/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+54                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+54-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/macbook/.gradle/caches/transforms-3/c4217aea2ca3d9a23241dc893df048d3/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+55                android:value="androidx.startup" />
+55-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/macbook/.gradle/caches/transforms-3/c4217aea2ca3d9a23241dc893df048d3/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+56        </provider>
+57    </application>
+58
+59</manifest>

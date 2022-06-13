@@ -1,0 +1,37 @@
+R_DEF: Internal format may change without notice
+local
+anim card_item_animation
+anim fade_in
+anim fade_out
+anim item_animation_fall_down
+anim slide_down
+anim slide_in
+anim slide_left
+anim slide_out
+anim slide_right
+anim slide_up
+anim wait_anim
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id action_splashFragment_to_weatherFragment
+id main_nav_fragment
+id my_navigation
+id splashFragment
+id text1
+id weatherFragment
+layout activity_main
+layout fragment_splash
+layout fragment_weather
+mipmap ic_launcher
+mipmap ic_launcher_round
+navigation main_navigation
+string app_name
+string hello_blank_fragment
+style Theme.Lesson_37
