@@ -1,5 +1,6 @@
 package uz.micro.star.lesson_37.di.module
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -19,6 +20,7 @@ object NetworkModule {
 //        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return Retrofit.Builder()
             .baseUrl("https://microstar.herokuapp.com/api/")
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(
                 OkHttpClient.Builder().addNetworkInterceptor(httpLoggingInterceptor)
                 .addInterceptor { chain ->
