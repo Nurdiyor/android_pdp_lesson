@@ -6,7 +6,7 @@ import uz.micro.star.lesson_37.databinding.FragmentSplashBinding
 class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding::inflate) {
     override fun onViewCreate() {
         binding.text1.setOnClickListener {
-            navController.navigate(R.id.action_splashFragment_to_weatherFragment)
+            navController.navigate(R.id.action_splashFragment_to_logInFragment)
         }
     }
 }
